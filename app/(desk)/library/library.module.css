@@ -1,0 +1,86 @@
+/* ---------- section links, hanging from the page head's heavy rule ---------- */
+.tabs { margin-block: calc(-1 * var(--space-xs)) var(--space-s); border-block-end: var(--rule-thin); }
+.tabs ul { display: flex; flex-wrap: wrap; gap: var(--space-m); padding: 0; list-style: none; }
+.tab { display: inline-block; padding-block: var(--space-2xs); border-block-end: 2px solid transparent; margin-block-end: -1px; color: var(--muted); font-weight: 500; text-decoration: none; }
+.tab:hover { color: var(--ink); }
+.tab[aria-current="page"] { color: var(--ink); border-block-end-color: var(--ink); }
+
+/* ---------- toolbar ---------- */
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xs) var(--space-m); padding-block-end: var(--space-s); border-block-end: var(--rule-thin); }
+.search { display: flex; gap: var(--space-2xs); flex: 1 1 22rem; max-inline-size: 32rem; }
+.search .input { flex: 1; min-inline-size: 0; }
+.show { font-size: var(--text-s); color: var(--muted); }
+.add { margin-inline-start: auto; }
+
+/* ---------- list rows ---------- */
+.list { padding: 0; list-style: none; }
+.row { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) minmax(12rem, 17rem) auto; gap: var(--space-s) var(--space-m); align-items: start; padding-block: var(--space-s); }
+.photo { inline-size: 5.5rem; aspect-ratio: 1; box-shadow: var(--shadow-graphic); }
+.photo :global(.aic-photo), .square :global(.aic-photo) { inline-size: 100%; block-size: 100%; }
+.photo :global(.aic-photo span), .square :global(.aic-photo span) { font-family: var(--font-ui); font-size: var(--text-xs); text-transform: none; letter-spacing: 0; background: none; padding: 0; }
+.photo :global(.aic-photo span:empty) { display: none; }
+.main { min-inline-size: 0; }
+.name { font-size: var(--text-l); }
+.role { margin-block-start: var(--space-3xs); }
+.missing { margin-block-start: var(--space-3xs); color: var(--muted); font-size: var(--text-s); }
+.notes { margin-block-start: var(--space-2xs); font-size: var(--text-s); color: var(--muted); max-inline-size: 60ch; }
+.facts { display: grid; gap: var(--space-3xs); font-size: var(--text-s); }
+.facts > div { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: var(--space-2xs); }
+.facts dt { color: var(--muted); }
+.facts dd { overflow-wrap: anywhere; }
+.actions { display: flex; gap: var(--space-2xs); align-items: start; justify-content: end; }
+
+@media (max-width: 56rem) {
+  .row { grid-template-columns: 4.5rem minmax(0, 1fr); }
+  .photo { inline-size: 4.5rem; }
+  .facts, .actions { grid-column: 2; justify-content: start; }
+}
+
+/* ---------- editor dialog ---------- */
+.editor { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); gap: var(--space-l); }
+.editorFields { min-inline-size: 0; display: grid; gap: var(--space-s); align-content: start; }
+.editorFields > :global(.field) + :global(.field) { margin-block-start: 0; }
+.editorPhoto { display: grid; gap: var(--space-s); align-content: start; min-inline-size: 0; }
+.editorFoot { grid-column: 1 / -1; display: grid; gap: var(--space-s); padding-block-start: var(--space-s); border-block-start: var(--rule-thin); }
+@media (max-width: 48rem) {
+  .editor { grid-template-columns: minmax(0, 1fr); }
+}
+
+.focus { position: relative; display: block; border: 0; padding: 0; background: none; justify-self: start; inline-size: fit-content; max-inline-size: 100%; cursor: crosshair; line-height: 0; box-shadow: var(--shadow-graphic); }
+.focus img { max-block-size: 15rem; max-inline-size: 100%; inline-size: auto; filter: grayscale(1) contrast(1.06); user-select: none; }
+.focus:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.marker { position: absolute; inline-size: 1.75rem; block-size: 1.75rem; translate: -50% -50%; border: 2px solid var(--on-fill); border-radius: 50%; box-shadow: 0 0 0 1.5px var(--fill), inset 0 0 0 1.5px var(--fill); pointer-events: none; }
+.marker::after { content: ""; position: absolute; inset: 50% auto auto 50%; inline-size: 4px; block-size: 4px; translate: -50% -50%; border-radius: 50%; background: var(--spark); }
+.range { inline-size: 100%; accent-color: var(--ink); }
+
+.previews { display: flex; flex-wrap: wrap; gap: var(--space-s); align-items: end; }
+.previews figure { display: grid; gap: var(--space-3xs); }
+.previews figcaption { font-size: var(--text-xs); color: var(--muted); }
+.square { inline-size: 8rem; aspect-ratio: 1; box-shadow: var(--shadow-graphic); }
+
+/* ---------- partner logos on the two grounds ---------- */
+.grounds { display: grid; grid-template-columns: 1fr 1fr; gap: 0; inline-size: 100%; box-shadow: var(--shadow-graphic); }
+.ground { display: grid; place-items: center; min-block-size: 6rem; padding: var(--space-s); }
+.ground img { max-block-size: 3.5rem; max-inline-size: 100%; inline-size: auto; object-fit: contain; }
+.groundSmall { min-block-size: 3.75rem; padding: var(--space-2xs) var(--space-s); }
+.groundSmall img { max-block-size: 2rem; }
+/* The two grounds of the club's graphics, fixed in both interface themes on purpose. */
+.ivory { background: #f5f2ea; color: #5a564e; }
+.black { background: #0b0b0c; color: #a8a399; }
+/* Same filters as .aic-plogo.is-white / .is-black in styles/post.css. */
+.toneWhite { filter: brightness(0) invert(1); }
+.toneBlack { filter: brightness(0); }
+.groundLabel { font-size: var(--text-xs); color: var(--muted); margin-block-start: var(--space-3xs); }
+.warn { font-size: var(--text-s); }
+
+.partnerRow { grid-template-columns: minmax(10rem, 15rem) minmax(0, 1fr) minmax(12rem, 17rem) auto; }
+@media (max-width: 56rem) {
+  .partnerRow { grid-template-columns: minmax(0, 1fr); }
+  .partnerRow .facts, .partnerRow .actions { grid-column: 1; }
+}
+.editor fieldset { border: 0; padding: 0; min-inline-size: 0; }
+.editor legend { padding: 0; margin-block-end: var(--space-3xs); }
+.tableWrap { position: relative; overflow-x: auto; }
+.tableWrap :global(.table) th.rowHead { font-weight: 500; color: var(--ink); border-block-end: var(--rule-thin); padding-block: var(--space-xs); }
+.cellActions { justify-content: end; flex-wrap: nowrap; }
+.formFoot { display: grid; gap: var(--space-s); margin-block-start: var(--space-m); }

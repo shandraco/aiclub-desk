@@ -1,0 +1,29 @@
+.shell { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr); min-block-size: 100dvh; }
+@media (min-width: 56rem) { .shell { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); } }
+
+/* The brand panel: the club's ink ground and 72px ledger grid, logo top, spark bottom. */
+.brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  padding: var(--space-2xl) clamp(1.5rem, 5vw, 4.5rem);
+  background-color: #0b0b0c;
+  color: #f5f2ea;
+  background-image: linear-gradient(rgba(245, 242, 234, 0.06) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(245, 242, 234, 0.06) 1.5px, transparent 1.5px);
+  background-size: 72px 72px;
+  background-position: -0.75px -0.75px;
+}
+@media (max-width: 55.99rem) { .brand { padding-block: var(--space-l); flex-direction: row; align-items: center; } }
+.logo { inline-size: clamp(9rem, 22vw, 17rem); block-size: auto; }
+.mark { display: flex; align-items: center; gap: var(--space-xs); font-size: var(--text-l); font-weight: 500; padding-block-start: var(--space-s); border-block-start: 3px solid #f5f2ea; max-inline-size: 18rem; }
+@media (max-width: 55.99rem) { .mark { border: 0; padding: 0; font-size: var(--text-m); } }
+.spark { inline-size: 1.1rem; block-size: 1.1rem; fill: #f4b400; }
+
+.main { display: grid; align-content: center; padding: var(--space-2xl) var(--gutter); }
+.form { inline-size: 100%; max-inline-size: 26rem; margin-inline: auto; display: grid; gap: var(--space-m); }
+.form h1 { font-size: var(--text-2xl); }
+.form form { display: grid; gap: var(--space-s); }
+.form form .field + .field { margin: 0; }
+.lede { color: var(--muted); }
+.submit { justify-self: start; min-inline-size: 9rem; min-block-size: 2.75rem; font-size: var(--text-m); }

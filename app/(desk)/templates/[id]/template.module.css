@@ -1,0 +1,10 @@
+.crumb { font-size: var(--text-s); color: var(--faint); margin-block-end: var(--space-3xs); }
+.crumb a { color: var(--muted); }
+.layout { display: grid; gap: var(--space-l); align-items: start; }
+@media (min-width: 70rem) { .layout { grid-template-columns: minmax(0, 1fr) 24rem; } }
+.previews { display: flex; flex-wrap: wrap; gap: var(--space-l); align-items: flex-end; padding: var(--space-l); background: var(--sunk); border: 1px solid var(--rule); border-radius: var(--radius-panel); }
+.preview { display: grid; gap: var(--space-2xs); margin: 0; }
+.preview figcaption { font-size: var(--text-s); }
+.note { flex-basis: 100%; font-size: var(--text-s); color: var(--muted); }
+.start { position: sticky; inset-block-start: var(--space-m); }
+@media (max-width: 69.99rem) { .start { position: static; } }

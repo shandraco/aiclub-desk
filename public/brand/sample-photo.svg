@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4f5a"/><stop offset="1" stop-color="#23262d"/></linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.35" r="0.6"><stop offset="0" stop-color="#f4b400" stop-opacity="0.35"/><stop offset="1" stop-color="#f4b400" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#wall)"/>
+  <rect x="380" y="120" width="440" height="250" fill="#d9dde3"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+  <rect x="0" y="600" width="1200" height="300" fill="#15171b"/>
+  <g fill="#0d0e11">
+    <circle cx="190" cy="470" r="62"/><path d="M90 640c10-90 50-120 100-120s90 30 100 120Z"/>
+    <circle cx="470" cy="500" r="56"/><path d="M380 650c8-80 45-110 90-110s82 30 90 110Z"/>
+    <circle cx="760" cy="480" r="60"/><path d="M665 650c10-86 48-115 95-115s86 29 95 115Z"/>
+    <circle cx="1030" cy="490" r="58"/><path d="M940 650c9-82 45-112 90-112s82 30 90 112Z"/>
+  </g>
+  <g fill="#9aa3b2" opacity="0.85">
+    <rect x="140" y="600" width="110" height="10"/><rect x="420" y="610" width="100" height="9"/>
+    <rect x="705" y="605" width="110" height="10"/><rect x="980" y="608" width="100" height="9"/>
+  </g>
+</svg>

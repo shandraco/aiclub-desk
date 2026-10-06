@@ -1,0 +1,2 @@
+ALTER TABLE "users" DROP CONSTRAINT "users_username_shape";--> statement-breakpoint
+ALTER TABLE "users" ADD CONSTRAINT "users_username_shape" CHECK ("users"."username" ~ '^([a-z0-9][a-z0-9_.-]{2,31}|[a-z0-9][a-z0-9._%+-]{0,63}@[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,24})$');

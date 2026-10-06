@@ -1,0 +1,9 @@
+# Never upload secrets, local data or test output.
+.env*
+!.env.example
+public/uploads
+screenshots
+test-results
+playwright-report
+.next
+node_modules

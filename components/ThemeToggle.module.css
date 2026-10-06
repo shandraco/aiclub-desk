@@ -1,0 +1,32 @@
+.group { border: 0; padding: 0; min-inline-size: 0; }
+.legend { font-weight: 700; margin-block-end: var(--space-2xs); padding: 0; }
+.options { display: flex; flex-wrap: wrap; gap: var(--space-2xs); }
+.option {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  padding-inline: var(--space-s);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+}
+.option input {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.option:has(input:checked) { border-color: var(--ink); background: var(--raised); font-weight: 700; }
+.option:has(input:checked)::before {
+  content: "";
+  inline-size: 0.6em;
+  block-size: 0.6em;
+  margin-inline-end: var(--space-2xs);
+  border-radius: 50%;
+  background: var(--ink);
+}
+.option:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 3px; }

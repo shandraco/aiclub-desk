@@ -1,0 +1,33 @@
+/* The posts list: the graphics themselves down the left, words beside them, state on the right. */
+.tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-s) var(--space-l); margin-block-end: var(--space-m); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 0 var(--space-m); border-block-end: var(--rule-thin); }
+.filter { display: inline-flex; align-items: center; gap: var(--space-2xs); padding-block: var(--space-2xs); font-size: var(--text-s); font-weight: 500; color: var(--muted); text-decoration: none; border-block-end: 3px solid transparent; margin-block-end: -1px; white-space: nowrap; }
+.filter:hover { color: var(--ink); }
+.filter[aria-current="page"] { color: var(--ink); border-block-end-color: var(--ink); }
+.n { color: var(--muted); font-weight: 400; }
+
+.search { display: flex; gap: var(--space-2xs); align-items: center; inline-size: min(100%, 24rem); }
+.search .input { flex: 1; min-inline-size: 0; }
+
+.list { list-style: none; padding: 0; border-block-start: var(--rule-heavy); }
+.row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--space-s) var(--space-m); align-items: center; padding-block: var(--space-s); }
+.thumb { line-height: 0; text-decoration: none; }
+.main { min-inline-size: 0; }
+.title { font-size: var(--text-l); line-height: 1.25; letter-spacing: -0.01em; display: flex; align-items: baseline; gap: var(--space-2xs); }
+.title a { text-decoration: none; overflow-wrap: anywhere; }
+.title a:hover { text-decoration: underline; }
+.title a::after { content: ""; position: absolute; inset: 0; }
+.row { position: relative; }
+.row:hover { background: var(--hair); }
+.sub { display: flex; flex-wrap: wrap; gap: 0 var(--space-s); margin-block-start: var(--space-3xs); font-size: var(--text-s); color: var(--muted); }
+.side { display: grid; justify-items: end; gap: var(--space-3xs); text-align: end; font-size: var(--text-s); }
+.when { color: var(--muted); }
+.emptyActions { margin-block-start: var(--space-s); }
+
+@media (max-width: 40rem) {
+  .row { grid-template-columns: auto minmax(0, 1fr); align-items: start; }
+  .side { grid-column: 2; justify-items: start; text-align: start; }
+  .search { inline-size: 100%; }
+  .filters { overflow-x: auto; flex-wrap: nowrap; inline-size: 100%; scrollbar-width: none; }
+}

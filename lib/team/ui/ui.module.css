@@ -1,0 +1,8 @@
+dialog.wide { inline-size: min(64rem, calc(100% - 2rem)); }
+.dlgHead { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-s); margin-block-end: var(--space-m); }
+.dlgHead h2 { font-size: var(--text-xl); }
+.copyRow { display: flex; gap: var(--space-2xs); }
+.copyInput { font-family: var(--font-figures); font-size: var(--text-s); min-inline-size: 0; }
+.actionError { display: block; max-inline-size: 28ch; margin-block-start: var(--space-3xs); font-size: var(--text-s); font-weight: 500; color: var(--danger); }
+/* Dialogs can be opened from a table cell; don't inherit its alignment or wrapping. */
+dialog.dialog { text-align: start; white-space: normal; font-size: var(--text-m); font-weight: 400; color: var(--ink); }

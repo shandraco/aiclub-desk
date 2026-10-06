@@ -1,0 +1,42 @@
+.scroll { position: relative; overflow-x: auto; }
+.people { min-inline-size: 40rem; }
+.people th.person { display: grid; gap: 0.1rem; text-align: start; font-weight: 400; color: var(--ink); padding: var(--space-xs) var(--space-xs) var(--space-xs) 0; border-block-end: var(--rule-thin); vertical-align: top; }
+.name { font-weight: 500; font-size: var(--text-m); }
+.off .name, .off td { color: var(--muted); }
+.offWord { color: var(--danger); font-weight: 500; }
+.nowrap { white-space: nowrap; }
+.roleForm { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2xs); }
+.select { inline-size: auto; min-block-size: 2rem; padding-block: 0; font-size: var(--text-s); }
+.ok { flex-basis: 100%; font-size: var(--text-xs); color: var(--muted); max-inline-size: 36ch; }
+.err { flex-basis: 100%; font-size: var(--text-s); color: var(--danger); font-weight: 500; max-inline-size: 36ch; }
+.ok:empty, .err:empty { display: none; }
+.rowActions { display: flex; flex-wrap: wrap; justify-content: end; gap: var(--space-2xs); }
+
+.inviteGrid { display: grid; grid-template-columns: minmax(0, 26rem) minmax(0, 1fr); gap: var(--space-xl); align-items: start; }
+@media (max-width: 52rem) { .inviteGrid { grid-template-columns: minmax(0, 1fr); } }
+.invite { display: grid; gap: var(--space-s); }
+.invite :global(.field) + :global(.field) { margin-block-start: 0; }
+.roles { border: 0; padding: 0; margin: 0; min-inline-size: 0; display: grid; gap: var(--space-2xs); }
+.roles legend { padding: 0; margin-block-end: var(--space-2xs); font-size: var(--text-s); font-weight: 500; }
+.roles :global(.check) + :global(.check) { margin-block-start: 0; }
+.secret { display: grid; gap: var(--space-s); }
+.measure { max-inline-size: 52ch; margin-block-end: var(--space-s); }
+.foot { margin-block-start: var(--space-s); }
+
+.sub { font-size: var(--text-m); font-weight: 600; margin-block-end: var(--space-2xs); }
+.invites { padding: 0; list-style: none; }
+.invites li { display: flex; justify-content: space-between; align-items: start; gap: var(--space-s); padding-block: var(--space-xs); font-size: var(--text-s); }
+.closed { margin-block-start: var(--space-m); font-size: var(--text-s); }
+.closed summary { cursor: pointer; color: var(--muted); padding-block: var(--space-2xs); }
+.mLabel { display: none; }
+/* Phones: each person becomes a short block instead of a table row that scrolls sideways. */
+@media (max-width: 40rem) {
+  .people { min-inline-size: 0; }
+  .people thead { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); }
+  .people, .people tbody, .people tr, .people td { display: block; }
+  .people tr { padding-block: var(--space-xs); border-block-end: var(--rule-thin); }
+  .people th.person, .people td { border: 0; padding: 0; }
+  .people td { margin-block-start: var(--space-2xs); }
+  .mLabel { display: inline; color: var(--muted); }
+  .rowActions { justify-content: start; }
+}

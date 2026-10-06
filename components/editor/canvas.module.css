@@ -1,0 +1,72 @@
+/*
+ * The canvas: the graphic, a layer of selectable targets over it, check markers and the
+ * in-place text editor. Only tokens here; the in-place editor takes its face from the
+ * element it covers (set inline from the graphic's computed style).
+ */
+.fit { inline-size: 100%; block-size: 100%; display: grid; place-items: center; min-inline-size: 0; min-block-size: 0; overflow: hidden; }
+.frame { position: relative; flex: none; }
+.stage { line-height: 0; box-shadow: var(--shadow-graphic); }
+
+.layer { position: absolute; inset: 0; touch-action: none; }
+
+.target {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  outline: 1px dashed transparent;
+  outline-offset: 2px;
+  cursor: text;
+  transition: outline-color var(--dur-1) var(--ease);
+}
+.target:hover { outline-color: var(--select); }
+.target:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.target.selected { outline: 2px solid var(--select); outline-offset: 2px; }
+.target[tabindex="-1"] { outline: 0; pointer-events: none; }
+.photo { cursor: grab; outline-offset: -3px; }
+.photo:active { cursor: grabbing; }
+.photo.selected, .photo:focus-visible { outline-offset: -3px; }
+.partner { cursor: pointer; }
+.locked .target { cursor: default; }
+.drop { outline: 3px solid var(--spark) !important; outline-offset: -3px !important; }
+
+/* A check marker beside an element: a number in the state colour, matching the checks list. */
+.marker {
+  position: absolute;
+  transform: translate(-60%, -60%);
+  min-inline-size: 1.25rem;
+  block-size: 1.25rem;
+  padding-inline: 0.3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  font-family: var(--font-figures);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  pointer-events: none;
+  box-shadow: var(--shadow-float);
+}
+.markErr { background: var(--danger); color: var(--on-fill); }
+.markWarn { background: var(--spark); color: var(--sunk); }
+
+/* Typing on the graphic: the editor sits exactly over the words it edits. */
+.inplace {
+  position: absolute;
+  z-index: 3;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  resize: none;
+  overflow: hidden;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  outline: 2px solid var(--select);
+  outline-offset: 3px;
+  caret-color: var(--spark);
+  font-kerning: normal;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.inplace::selection { background: var(--select); color: var(--sunk); }

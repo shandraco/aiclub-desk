@@ -1,0 +1,12 @@
+.drop { display: flex; gap: var(--space-s); align-items: center; padding: var(--space-xs); border: 1px dashed var(--line); background: var(--raised); }
+.compact { padding: var(--space-2xs); gap: var(--space-xs); }
+.over { border-style: solid; border-color: var(--ink); background: var(--sunk); }
+.thumb, .logo, .empty { inline-size: 4rem; block-size: 4rem; flex: none; object-fit: cover; }
+.compact .thumb, .compact .logo, .compact .empty { inline-size: 2.75rem; block-size: 2.75rem; }
+.logo { object-fit: contain; background: var(--sunk); padding: 4px; }
+.empty { background-image: repeating-linear-gradient(135deg, var(--rule) 0 1px, transparent 1px 10px); box-shadow: inset 0 0 0 1px var(--rule); }
+.body { display: grid; gap: var(--space-3xs); justify-items: start; min-inline-size: 0; }
+.label { font-size: var(--text-s); font-weight: 500; }
+.hint { font-size: var(--text-xs); color: var(--muted); }
+.error { font-size: var(--text-s); color: var(--danger); }
+.error:empty { display: none; }

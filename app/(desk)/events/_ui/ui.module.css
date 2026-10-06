@@ -1,0 +1,61 @@
+/* Shared planning pieces: the post chip, the date block, the spark flag. Tokens only. */
+
+/* ---------- post chip: the real cover, kind, time, status ---------- */
+.chip {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  color: inherit;
+  text-decoration: none;
+  min-inline-size: 0;
+  inline-size: max-content;
+  max-inline-size: 100%;
+}
+.chipRow { flex-direction: row; align-items: flex-start; gap: var(--space-xs); inline-size: auto; }
+.chipThumb { position: relative; display: block; inline-size: max-content; outline: 1px solid var(--rule); outline-offset: 0; transition: transform var(--dur-1) var(--ease); }
+.chip:hover .chipThumb { transform: translateY(-2px); }
+.chip:hover .chipKind { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.chip:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+/* A carousel: a second sheet peeking out behind the cover. */
+.stackMark { position: absolute; inset: 4px -4px -4px 4px; z-index: -1; box-shadow: 0 0 0 1px var(--line); background: var(--raised); }
+.chipText { display: grid; gap: 1px; font-size: var(--text-s); line-height: 1.3; min-inline-size: 0; max-inline-size: 11rem; }
+.chipRow .chipText { max-inline-size: none; }
+.chipKind { font-weight: 600; letter-spacing: -0.005em; }
+.chipEvent { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chipWhen { font-size: var(--text-xs); }
+
+.flag { display: inline-flex; align-items: center; gap: 0.4em; font-size: var(--text-s); font-weight: 500; color: var(--spark-ink); }
+
+/* ---------- date block: big numeral, weekday and month beside it ---------- */
+.date { display: inline-flex; align-items: center; gap: var(--space-xs); line-height: 1; }
+.dateNum {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: var(--text-3xl);
+  letter-spacing: -0.055em;
+  font-variant-numeric: tabular-nums lining-nums;
+  min-inline-size: 1.15em;
+  text-align: end;
+}
+.dateWords { display: grid; gap: 0.2em; font-size: var(--text-s); font-weight: 500; }
+.dateM .dateNum { font-size: var(--text-xl); letter-spacing: -0.04em; min-inline-size: 1.2em; }
+.dateM .dateWords { font-size: var(--text-xs); }
+.dateEm .dateWords > :first-child { font-weight: 700; }
+
+/* ---------- small forms ---------- */
+.actionError { font-size: var(--text-s); color: var(--danger); font-weight: 500; margin-block-start: var(--space-3xs); max-inline-size: 28ch; }
+.dlgTitle { font-size: var(--text-l); margin-block-end: var(--space-xs); }
+.dlgBody { margin-block-end: var(--space-m); }
+.dlgBody p + p { margin-block-start: var(--space-2xs); }
+.dlgNotice { margin-block-end: var(--space-s); }
+
+/* The hatch of the brand's empty photo slots, for a planned post that doesn't exist yet. */
+.hatch {
+  background-image: repeating-linear-gradient(135deg, var(--rule) 0 1.5px, transparent 1.5px 10px);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chipThumb { transition: none; }
+  .chip:hover .chipThumb { transform: none; }
+}

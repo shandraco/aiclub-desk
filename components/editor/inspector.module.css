@@ -1,0 +1,37 @@
+/* The inspector: only what applies to the selection, as compact groups split by hairlines. */
+.inspector { display: grid; gap: 0; }
+.head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-xs); padding-block-end: var(--space-xs); }
+.head h2 { font-size: var(--text-m); font-weight: 600; letter-spacing: 0; display: flex; gap: var(--space-2xs); align-items: baseline; }
+.head h2 small { font-size: var(--text-s); font-weight: 400; color: var(--muted); }
+.bare { border: 0; padding: 0; margin: 0; min-inline-size: 0; display: grid; gap: var(--space-s); }
+
+.group { display: grid; gap: var(--space-xs); padding-block-start: var(--space-s); border-block-start: var(--rule-thin); }
+.group h3 { font-size: var(--text-s); font-weight: 600; letter-spacing: 0; display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-xs); }
+.group h3 small { font-weight: 400; color: var(--muted); }
+
+.field { display: grid; gap: var(--space-3xs); min-inline-size: 0; }
+.field > label { font-size: var(--text-s); font-weight: 500; }
+.hint { font-size: var(--text-xs); color: var(--muted); line-height: 1.45; }
+.checks { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-s); }
+.checks:empty { display: none; }
+.checks :global(.check) + :global(.check) { margin: 0; }
+
+.wordList { list-style: none; padding: 0; display: grid; }
+.wordList li + li { border-block-start: var(--rule-thin); }
+.wordBtn { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--space-2xs); inline-size: 100%; padding: var(--space-2xs) var(--space-3xs); border: 0; border-radius: var(--radius); background: none; text-align: start; font-size: var(--text-s); line-height: 1.35; }
+.wordBtn:hover { background: var(--hair); }
+.wordName { color: var(--muted); }
+.wordVal { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wordAdd { color: var(--info); }
+
+.rows { list-style: none; padding: 0; display: grid; gap: var(--space-xs); }
+.row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2xs); }
+.row > .wordBtn { grid-template-columns: auto minmax(0, 1fr); flex: 1; min-inline-size: 0; }
+.rowHead { display: flex; justify-content: space-between; align-items: center; gap: var(--space-2xs); font-size: var(--text-s); }
+.tools { display: inline-flex; flex: none; }
+.stack { display: grid; gap: var(--space-xs); }
+.stack:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: var(--radius); }
+.pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: var(--space-2xs); align-items: end; }
+.pair > :global(.btn) { grid-column: 1 / -1; justify-self: end; }
+.full { grid-column: 1 / -1; }
+.full:empty { display: none; }

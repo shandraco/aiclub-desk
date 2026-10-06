@@ -1,0 +1,32 @@
+/* The event form: a ledger. Section names sit in the left column on a heavy rule, fields right. */
+.form { max-inline-size: 62rem; }
+
+.group {
+  display: grid;
+  grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+  gap: var(--space-s) var(--space-l);
+  border-block-start: var(--rule-heavy);
+  padding-block: var(--space-s) var(--space-l);
+}
+.groupHead { font-size: var(--text-l); letter-spacing: -0.01em; }
+.fields { min-inline-size: 0; border: 0; padding: 0; }
+.fields > * + * { margin-block-start: var(--space-s); }
+.move { margin-block-start: var(--space-s); }
+.lead { font-size: var(--text-s); margin-block-end: var(--space-xs); max-inline-size: 60ch; }
+
+.plan { list-style: none; padding: 0; border-block-start: 1px solid var(--ink); }
+.plan > li { padding-block: var(--space-xs); border-block-end: var(--rule-thin); }
+.plan b { font-weight: 600; }
+.past { display: block; color: var(--muted); font-size: var(--text-xs); margin-block-start: 2px; }
+
+.chosen { list-style: none; padding: 0; margin-block-end: var(--space-2xs); border-block-start: 1px solid var(--ink); }
+.chosen > li { display: flex; align-items: center; gap: var(--space-xs); padding-block: var(--space-3xs); border-block-end: var(--rule-thin); min-block-size: 2.75rem; }
+.ord { inline-size: 1.75rem; flex: none; }
+.who { flex: 1; min-inline-size: 0; font-size: var(--text-s); }
+.who b { font-weight: 600; }
+
+.submit { border-block-start: var(--rule-heavy); padding-block-start: var(--space-s); display: grid; gap: var(--space-s); }
+
+@media (max-width: 48rem) {
+  .group { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
+}

@@ -1,0 +1,145 @@
+/* Brand post canvases, ported verbatim from the original content desk. Fonts come from
+   next/font variables set on <html>. Edit with care: this is the club's visual identity. */
+/* ============ social canvases: always their own ground, whatever the UI theme ============ */
+.aic-post{
+  --g:var(--brand-ivory,#f5f2ea);--fg:var(--brand-black,#0b0b0c);--muted:var(--brand-stone,#5a564e);
+  --rule:var(--brand-black,#0b0b0c);--hair:rgba(11,11,12,.22);--grid:rgba(11,11,12,.06);--gold:var(--brand-gold,#f4b400);
+  position:relative;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden;
+  padding:72px;background-color:var(--g);color:var(--fg);
+  background-image:linear-gradient(var(--grid) 1.5px,transparent 1.5px),linear-gradient(90deg,var(--grid) 1.5px,transparent 1.5px);
+  background-size:72px 72px;background-position:-.75px -.75px;
+  font-family:var(--font-geist),"Helvetica Neue",Arial,sans-serif;font-weight:400;text-align:left;
+  font-variant-numeric:tabular-nums lining-nums;-webkit-font-smoothing:antialiased;transform-origin:0 0;
+}
+.aic-post *,.aic-post *::before,.aic-post *::after{box-sizing:border-box;margin:0;padding:0}
+.aic-g-ink{--g:var(--brand-black,#0b0b0c);--fg:var(--brand-ivory,#f5f2ea);--muted:var(--brand-fog,#a8a399);--rule:var(--brand-ivory,#f5f2ea);--hair:rgba(245,242,234,.24);--grid:rgba(245,242,234,.06)}
+.aic-feed{width:1080px;height:1350px}
+.aic-story{width:1080px;height:1920px;padding:250px 72px 300px}
+.aic-wide{width:1200px;height:627px;padding:48px 64px}
+.aic-fit{position:relative;overflow:hidden;flex:none}
+.aic-fit > .aic-post{position:absolute;left:0;top:0}
+
+.aic-eyebrow,.aic-kicker,.aic-strip dt,.aic-foot,.aic-role,.aic-stat span,.aic-photo span{
+  font-family:var(--font-geist-mono),"SF Mono",Menlo,Consolas,monospace;font-weight:500;text-transform:uppercase;letter-spacing:.08em;
+}
+.aic-head{display:flex;align-items:center;justify-content:space-between;gap:32px;padding-bottom:32px;border-bottom:3px solid var(--rule);flex:none}
+.aic-logo{display:block;height:80px;width:auto}
+.aic-eyebrow{font-size:24px;line-height:1.2;color:var(--muted);text-align:right}
+
+.aic-main{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-end;gap:56px;padding-top:56px}
+.aic-kicker{display:flex;align-items:center;gap:16px;font-size:24px;line-height:1.2;color:var(--fg)}
+.aic-spark{display:block;width:34px;height:34px;flex:none;fill:var(--gold)}
+.aic-h{font-family:var(--font-geist),"Helvetica Neue",Arial,sans-serif;font-weight:600;font-size:104px;line-height:.95;letter-spacing:-.035em;margin-top:28px;text-wrap:balance}
+.aic-h.is-long{font-size:80px;line-height:.98;letter-spacing:-.03em}
+.aic-dek{font-family:var(--font-newsreader),Georgia,serif;font-size:38px;line-height:1.3;color:var(--muted);margin-top:30px;max-width:880px;text-wrap:pretty}
+
+.aic-strip{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));border-top:3px solid var(--rule);flex:none}
+.aic-cell{padding:24px 20px 0 0;min-width:0}
+.aic-cell + .aic-cell{padding-left:22px;border-left:1.5px solid var(--hair)}
+.aic-strip dt{font-size:20px;line-height:1.2;color:var(--muted)}
+.aic-strip dd{font-size:36px;line-height:1.15;font-weight:600;letter-spacing:-.01em;margin-top:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.aic-foot{display:flex;justify-content:space-between;gap:24px;margin-top:36px;font-size:20px;line-height:1.2;color:var(--muted);flex:none}
+
+/* photos: every image slot crops by focus point and zoom */
+.aic-photo{position:relative;overflow:hidden;background-color:var(--hair);flex:none}
+.aic-photo img{position:absolute;left:0;top:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none}
+.aic-photo.is-bw img{filter:grayscale(1) contrast(1.06)}
+.aic-photo.is-empty{display:grid;place-items:center;background-color:transparent;background-image:repeating-linear-gradient(135deg,var(--hair) 0 1.5px,transparent 1.5px 24px);box-shadow:inset 0 0 0 1.5px var(--hair)}
+.aic-photo span{font-size:20px;color:var(--muted);background:var(--g);padding:8px 14px}
+
+/* speaker: 1 to 4 speakers */
+.aic-speakers{display:grid;grid-template-columns:repeat(var(--n,1),minmax(0,1fr));gap:24px;flex:none}
+.aic-spk{min-width:0}
+.aic-spk .aic-photo{height:440px}
+.aic-n-2 .aic-spk .aic-photo{height:420px}
+.aic-n-3 .aic-spk .aic-photo{height:360px}
+.aic-n-4 .aic-spk .aic-photo{height:310px}
+.aic-name{font-family:var(--font-newsreader),Georgia,serif;font-size:58px;line-height:1.05;letter-spacing:-.01em;margin-top:22px}
+.aic-role{font-size:22px;line-height:1.3;color:var(--muted);margin-top:10px}
+.aic-n-2 .aic-name{font-size:44px}
+.aic-n-3 .aic-name{font-size:36px}
+.aic-n-4 .aic-name{font-size:30px}
+.aic-n-3 .aic-role,.aic-n-4 .aic-role{font-size:17px}
+.aic-k-speaker .aic-main,.aic-k-general .aic-main{justify-content:flex-start;gap:44px}
+.aic-k-speaker .aic-copy,.aic-k-general .aic-copy{margin-top:auto}
+.aic-k-speaker .aic-h{font-size:76px;line-height:.98;letter-spacing:-.03em;margin-top:24px}
+.aic-k-speaker .aic-h.is-long{font-size:64px}
+
+/* general: text, photo, grid or full bleed */
+.aic-media{height:540px}
+.aic-grid{display:grid;gap:12px;height:540px;flex:none}
+.aic-grid .aic-photo{height:auto;min-height:0}
+.aic-grid-2{grid-template-columns:1fr 1fr}
+.aic-grid-3{grid-template-columns:1.35fr 1fr;grid-template-rows:1fr 1fr}
+.aic-grid-3 > :first-child{grid-row:span 2}
+.aic-grid-4{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.aic-k-general.aic-l-photo .aic-h,.aic-k-general.aic-l-grid .aic-h{font-size:84px}
+.aic-k-general.aic-l-photo .aic-h.is-long,.aic-k-general.aic-l-grid .aic-h.is-long{font-size:66px}
+.aic-k-general.aic-l-text .aic-main{justify-content:flex-end}
+
+/* full bleed */
+.aic-is-bleed{background-image:none}
+.aic-bg{position:absolute;inset:0;z-index:0}
+.aic-bg.is-empty{box-shadow:none}
+.aic-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(11,11,12,.72) 0%,rgba(11,11,12,0) 20%,rgba(11,11,12,0) 36%,rgba(11,11,12,.86) 70%,rgba(11,11,12,.96) 100%)}
+.aic-is-bleed > .aic-head,.aic-is-bleed > .aic-main,.aic-is-bleed > .aic-foot{position:relative;z-index:2;pointer-events:none}
+.aic-is-bleed .aic-main{justify-content:flex-end}
+.aic-is-bleed .aic-copy{margin-top:0}
+.aic-is-bleed .aic-eyebrow,.aic-is-bleed .aic-dek,.aic-is-bleed .aic-role,.aic-is-bleed .aic-foot,.aic-is-bleed .aic-strip dt{color:#c9c4ba}
+
+/* recap */
+.aic-stats{display:grid;grid-template-columns:1fr 1fr;border-top:3px solid var(--rule)}
+.aic-stat{padding:26px 22px 26px 0;border-bottom:1.5px solid var(--hair);min-width:0}
+.aic-stat:nth-child(even){padding-left:26px;border-left:1.5px solid var(--hair)}
+.aic-stat b{display:block;font-weight:600;font-size:150px;line-height:.92;letter-spacing:-.045em}
+.aic-stat span{display:block;font-size:22px;line-height:1.3;color:var(--muted);margin-top:16px}
+.aic-k-recap .aic-h{font-size:88px}
+.aic-k-recap .aic-h.is-long{font-size:72px}
+
+/* story */
+.aic-story .aic-h{font-size:120px}
+.aic-story .aic-h.is-long{font-size:92px}
+.aic-story .aic-spk .aic-photo{height:620px}
+.aic-story.aic-n-2 .aic-spk .aic-photo{height:600px}
+.aic-story.aic-n-3 .aic-spk .aic-photo{height:520px}
+.aic-story.aic-n-4 .aic-spk .aic-photo{height:420px}
+.aic-story.aic-k-speaker .aic-h{font-size:84px}
+.aic-story .aic-media,.aic-story .aic-grid{height:760px}
+
+/* wide: LinkedIn event and link cards */
+.aic-wide .aic-head{padding-bottom:20px;border-bottom-width:2px}
+.aic-wide .aic-logo{height:52px}
+.aic-wide .aic-eyebrow{font-size:17px}
+.aic-wide .aic-main{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);align-items:end;gap:56px;padding-top:28px}
+.aic-wide .aic-kicker{font-size:17px;gap:12px}
+.aic-wide .aic-spark{width:24px;height:24px}
+.aic-wide .aic-h{font-size:64px;margin-top:20px}
+.aic-wide .aic-h.is-long{font-size:50px}
+.aic-wide .aic-dek{display:none}
+.aic-wide .aic-strip{grid-template-columns:1fr;border-top-width:2px}
+.aic-wide .aic-cell,.aic-wide .aic-cell + .aic-cell{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-left:0;border-bottom:1.5px solid var(--hair)}
+.aic-wide .aic-strip dt{font-size:15px}
+.aic-wide .aic-strip dd{font-size:24px;margin:0}
+.aic-wide .aic-foot{display:none}
+
+
+/* line breaks and paragraphs typed into the desk */
+.aic-h,.aic-dek,.aic-name,.aic-role,.aic-q{white-space:pre-line}
+.aic-dek + .aic-dek{margin-top:18px}
+
+/* partner logos: in the header lockup or a footer row */
+.aic-lockup{display:flex;align-items:center;gap:28px;min-width:0}
+.aic-lock-rule{width:1.5px;height:64px;background:var(--hair);flex:none}
+.aic-plogo{display:block;height:56px;width:auto;max-width:240px;object-fit:contain}
+.aic-plogo.is-white{filter:brightness(0) invert(1)}
+.aic-plogo.is-black{filter:brightness(0)}
+.aic-head .aic-plogo{height:64px;max-width:200px}
+.aic-partners{display:flex;align-items:center;gap:32px;margin-top:36px;padding-top:24px;border-top:1.5px solid var(--hair);flex:none;position:relative;z-index:2}
+.aic-partners > span{font-family:var(--font-geist-mono),"SF Mono",Menlo,monospace;font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:20px;color:var(--muted);flex:none}
+.aic-partners + .aic-foot{margin-top:20px}
+.aic-wide .aic-lock-rule{height:44px}
+.aic-wide .aic-head .aic-plogo{height:44px}
+.aic-wide .aic-partners{display:none}
+
+/* blank canvas */
+.aic-nogrid{background-image:none}

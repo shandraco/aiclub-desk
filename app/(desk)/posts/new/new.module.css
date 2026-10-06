@@ -1,0 +1,9 @@
+/* Starting points: the empty graphic each one gives you, its name and what it is for. */
+.cols { display: grid; gap: var(--space-xl); }
+@media (min-width: 62rem) { .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cols > :global(.panel) + :global(.panel) { margin-block-start: 0; } }
+.list { list-style: none; padding: 0; }
+.choice { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--space-s); align-items: center; padding-block: var(--space-xs); }
+.choice:not(:has(:global(.post-thumb))) { grid-template-columns: minmax(0, 1fr) auto; }
+.text h3 { font-size: var(--text-m); letter-spacing: 0; }
+.text p { font-size: var(--text-s); color: var(--muted); margin-block-start: var(--space-3xs); }
+.note { font-size: var(--text-s); color: var(--muted); max-inline-size: 60ch; margin-block-end: var(--space-s); }

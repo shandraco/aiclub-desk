@@ -1,0 +1,13 @@
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr)); gap: var(--space-xl); align-items: start; }
+.grid > :global(.panel) + :global(.panel) { margin-block-start: 0; }
+.grid + :global(.panel) { margin-block-start: var(--space-xl); }
+.form { display: grid; gap: var(--space-s); max-inline-size: 28rem; }
+.form :global(.field) + :global(.field) { margin-block-start: 0; }
+.inline { display: grid; gap: var(--space-s); justify-items: start; }
+.sessions { padding: 0; list-style: none; max-inline-size: 44rem; }
+.sessions li { padding-block: var(--space-xs); display: grid; gap: 0.1rem; font-size: var(--text-s); }
+.sessions b { font-size: var(--text-m); font-weight: 500; }
+.here { color: var(--ok); font-weight: 500; }
+.after { display: grid; gap: var(--space-2xs); margin-block-start: var(--space-m); max-inline-size: 44rem; }
+.after > p { font-size: var(--text-xs); color: var(--muted); }
+.more { padding-block: var(--space-xs); border-block-start: var(--rule-thin); font-size: var(--text-s); color: var(--muted); max-inline-size: 44rem; }
