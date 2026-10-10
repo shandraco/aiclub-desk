@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/nextjs";
 import type { Instrumentation } from "next";
 
 /**
@@ -12,6 +13,10 @@ import type { Instrumentation } from "next";
  *    request id; lib/request-id.ts already reuses an incoming traceparent.
  */
 export async function register() {
+  // Lookout (our Sentry-compatible tracker): only when a DSN is set, no tracing, no PII.
+  if (process.env.SENTRY_DSN) {
+    Sentry.init({ dsn: process.env.SENTRY_DSN, tracesSampleRate: 0, sendDefaultPii: false });
+  }
   if (process.env.NEXT_RUNTIME !== "nodejs") return;
   const { env } = await import("@/lib/env");
   const { log } = await import("@/lib/log");
@@ -29,6 +34,7 @@ export async function register() {
  * Forward to Sentry or similar here if you add one.
  */
 export const onRequestError: Instrumentation.onRequestError = async (err, request, context) => {
+  Sentry.captureRequestError(err, request, context);
   const { log } = await import("@/lib/log");
   const header = request.headers["x-request-id"];
   log.error("request failed", {
